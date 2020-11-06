@@ -6,6 +6,6 @@ module add mpi/hpcx
 
 #download/install MemXCT-CPU
 git clone https://github.com/gadube/MemXCT-CPU.git $HOME/MemXCT
-cd MemXCT
+cd $HOME/MemXCT
 make clean
 make
