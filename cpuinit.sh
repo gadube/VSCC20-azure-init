@@ -10,5 +10,6 @@ if [[ ! -d "$HOME/MemXCT" ]]; then
 fi
 
 cd $HOME/MemXCT
+mv Makefile.azure Makefile
 make clean
 make
