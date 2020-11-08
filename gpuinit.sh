@@ -1,14 +1,16 @@
 #!/bin/bash
 
 #install cuda
-sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-sudo yum install dkms -y
-CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
-wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
-sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
-rm -f /tmp/${CUDA_REPO_PKG}
-sudo yum install cuda -y
-export PATH=$PATH:/usr/local/cuda/bin
+if ! [-x "$(command -v nvcc)" ]; then
+  sudo rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  sudo yum install dkms -y
+  CUDA_REPO_PKG=cuda-repo-rhel7-10.0.130-1.x86_64.rpm
+  wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
+  sudo rpm -ivh /tmp/${CUDA_REPO_PKG}
+  rm -f /tmp/${CUDA_REPO_PKG}
+  sudo yum install cuda -y
+  export PATH=$PATH:/usr/local/cuda/bin
+fi
 export CUDA_INSTALL_DIR=/usr/local/cuda
 
 #ensure PBS on path

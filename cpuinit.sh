@@ -5,7 +5,10 @@ export PATH=$PATH:/opt/pbs/bin
 module add mpi/hpcx
 
 #download/install MemXCT-CPU
-git clone https://github.com/gadube/MemXCT-CPU.git $HOME/MemXCT
+if [[ ! -d "$HOME/MemXCT" ]]; then
+  git clone https://github.com/gadube/MemXCT-GPU.git $HOME/MemXCT
+fi
+
 cd $HOME/MemXCT
 make clean
 make
