@@ -23,6 +23,6 @@ if [[ ! -d "$HOME/MemXCT" ]]; then
   git clone https://github.com/gadube/MemXCT-GPU.git $HOME/MemXCT
 fi
 cd $HOME/MemXCT
-mv Makefile.azure.gpu Makefile
+mv Makefile.azure.P100 Makefile
 make clean
 make
