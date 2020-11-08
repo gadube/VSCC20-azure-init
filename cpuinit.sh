@@ -6,7 +6,7 @@ module add mpi/hpcx
 
 #download/install MemXCT-CPU
 if [[ ! -d "$HOME/MemXCT" ]]; then
-  git clone https://github.com/gadube/MemXCT-GPU.git $HOME/MemXCT
+  git clone https://github.com/gadube/MemXCT-CPU.git $HOME/MemXCT
 fi
 
 cd $HOME/MemXCT
