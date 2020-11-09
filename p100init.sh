@@ -5,6 +5,7 @@ export PATH=$PATH:/tmp
 LOCAL_TAR=/tmp/azcopy.tar.gz
 wget -O ${LOCAL_TAR} https://aka.ms/downloadazcopy-v10-linux >/dev/null
 tar -xzf ${LOCAL_TAR} --strip-components 1 --wildcards **/azcopy
+mv azcopy /tmp/azcopy
 
 #install cuda
 if ! [-x "$(command -v nvcc)" ]; then
@@ -33,4 +34,9 @@ fi
 cd $HOME/MemXCT
 mv Makefile.azure.P100 Makefile
 make clean
+azcopy copy 'https://scc20input.blob.core.windows.net/memxct' '.' --recursive
+tar -xvf memxct/MEMXCT.tar
+mv CDS* $HOME/MemXCT/MemXCT_datasets/
+rm -rf memxct
+
 make
