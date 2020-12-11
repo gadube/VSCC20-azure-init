@@ -6,7 +6,7 @@ wget -O ${LOCAL_TAR} https://aka.ms/downloadazcopy-v10-linux >/dev/null
 tar -xzf ${LOCAL_TAR} --strip-components 1 --wildcards **/azcopy
 
 #add mpi
-module add mpi/hpcx
+module add mpi/openmpi-3.1.0
 
 #download/install MemXCT-CPU
 if [[ ! -d "$HOME/MemXCT" ]]; then
