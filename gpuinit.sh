@@ -24,7 +24,7 @@ export CUDA_INSTALL_DIR=/usr/local/cuda
 export PATH=$PATH:/opt/pbs/bin
 
 #add mpi
-module add mpi/hpcx
+module add mpi/openmpi-3.1.0
 
 
 #download/install MemXCT-CPU
