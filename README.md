@@ -1,4 +1,4 @@
-Azure Initialization files
+Azure Initialization Scripts
 
  - cpuinit.sh
  - gpuinit.sh
